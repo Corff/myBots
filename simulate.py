@@ -3,6 +3,9 @@ import pybullet_data
 import time
 import pyrosim.pyrosim as pyrosim
 import numpy as np
+import sys
+
+print(sys.executable)
 
 physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
