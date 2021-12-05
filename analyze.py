@@ -3,10 +3,13 @@ import matplotlib.pyplot as plt
 
 backLegSensorValues = np.load("data/backLegSensorValues.npy")
 frontLegSensorValues = np.load("data/backLegSensorValues.npy")
+sin = np.load("data/sin.npy")
 
-plt.plot(backLegSensorValues,linewidth=2)
-plt.legend()
+plt.plot(sin)
 plt.show()
-plt.plot(frontLegSensorValues,linewidth=2)
-plt.legend()
-plt.show()
+# plt.plot(backLegSensorValues,linewidth=2)
+# plt.legend()
+# plt.show()
+# plt.plot(frontLegSensorValues,linewidth=2)
+# plt.legend()
+# plt.show()

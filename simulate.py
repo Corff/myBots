@@ -6,7 +6,10 @@ import numpy as np
 import random
 
 pi = 3.14159265359
-steps = 1000
+steps = 10000
+
+amplitude, frequency, phaseOffset = np.pi/4, 10, 0
+
 physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
@@ -17,7 +20,8 @@ p.loadSDF("world.sdf")
 pyrosim.Prepare_To_Simulate("body.urdf")
 backLegSensorValues = np.zeros(steps)
 frontLegSensorValues = np.zeros(steps)
-x = np.linspace(-np.pi, np.pi, 201)
+y = amplitude * np.sin(frequency * np.linspace(-np.pi, np.pi, 1000) + phaseOffset)
+np.save("data/sin",y)
 
 for i in range(0,steps):
     p.stepSimulation()
@@ -26,14 +30,14 @@ for i in range(0,steps):
         bodyIndex = robot,
         jointName = "Torso BackLeg",
         controlMode = p.POSITION_CONTROL,
-        targetPosition = random.uniform(-pi/2,pi/2),
+        targetPosition = y[i],
         maxForce = 25
     )
     pyrosim.Set_Motor_For_Joint(
         bodyIndex = robot,
         jointName = "Torso FrontLeg",
         controlMode = p.POSITION_CONTROL,
-        targetPosition= random.uniform(-pi/2,pi/2),
+        targetPosition= -y[i],
         maxForce = 25
     )
 
@@ -45,6 +49,3 @@ p.disconnect()
 
 np.save("data/backLegSensorValues.npy",backLegSensorValues)
 np.save("data/frontLegSensorValues.npy",frontLegSensorValues)
-
-
-#print(backlogSensorValues)
