@@ -1,6 +1,6 @@
 import numpy as np
 
-steps = 10000
+steps = 100
 amplitude = np.pi/4
 frequency = 10,
 phaseOffset = 0
