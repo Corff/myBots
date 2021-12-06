@@ -9,4 +9,6 @@ class SENSOR:
     def Get_Value(self,t):
         self.values[t] = ps.Get_Touch_Sensor_Value_For_Link(self.linkName)
         if(t==c.steps-1):
-            print(self.values)
+            self.Save_Values()
+    def Save_Values(self):
+        np.save("data/sensorValues"+self.linkName+".npy",self.values)

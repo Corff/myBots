@@ -1,15 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-backLegSensorValues = np.load("data/backLegSensorValues.npy")
-frontLegSensorValues = np.load("data/backLegSensorValues.npy")
-sin = np.load("data/sin.npy")
-
-plt.plot(sin)
+x = np.load("data/motorValuesTorso BackLeg.npy")
+y = np.load("data/motorValuesTorso FrontLeg.npy")
+plt.plot(x)
 plt.show()
-# plt.plot(backLegSensorValues,linewidth=2)
-# plt.legend()
-# plt.show()
-# plt.plot(frontLegSensorValues,linewidth=2)
-# plt.legend()
-# plt.show()
+plt.plot(y)
+plt.show()
