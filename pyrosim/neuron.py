@@ -70,6 +70,7 @@ class NEURON:
 
     def Update_Hidden_Or_Motor_Neuron(self):
         self.Set_Value(0)
+
 # -------------------------- Private methods -------------------------
 
     def Determine_Name(self,line):

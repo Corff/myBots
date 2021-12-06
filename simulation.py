@@ -19,6 +19,7 @@ class SIMULATION:
             self.robot.Sense(i)
             self.robot.Think()
             self.robot.Act(i)
+            self.robot.Save()
             time.sleep(c.sleepTime)
         self.__del__()
         
