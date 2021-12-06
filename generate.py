@@ -5,7 +5,6 @@ def Create_World():
     pyrosim.Send_Cube(name="Torso", pos=[5,0,0.5], size = [1,1,1])
     pyrosim.End()
 
-
 def Generate_Body():
     pyrosim.Start_URDF("body.urdf")
     pyrosim.Send_Cube(name="Torso", pos = [0,0,1.5], size = [1,1,1])
